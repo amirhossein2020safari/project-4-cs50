@@ -1,0 +1,83 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div id="new-post">
+        <form id="new-post-form">
+            <textarea class="form-control" id="new-post-body" placeholder="Write your post..."></textarea>
+            <input type="submit" class="btn btn-primary" id="new-post-submit" value="Post"/>
+        </form>
+    </div>
+    {% endif %}
+
+    <div id="all-posts">
+        
+        <div id="posts">
+  
+        </div>
+
+        <nav aria-label="Page navigation all_posts">
+          <ul class="pagination justify-content-center">
+            
+            <div id="li-all-posts">
+
+            </div>
+          
+          </ul>
+        </nav>
+
+    </div>
+
+    <div id="profile">
+        
+        <div id="profile-user">
+            <p id="profile-username"></p>
+            Followings: <span id="profile-Followings"></span>
+            Followers: <span id="profile-followers"></span>
+
+            <div id="logged-in-user" logged-in-user={{user}} style="display: none;"></div>
+            <div id="follow-button">
+                <button id="follow-unfollow-btn" class="btn btn-primary">Follow</button>
+            </div>
+        </div>
+
+        <div id="profile-posts">
+
+        </div>
+
+        <nav aria-label="Page navigation profile">
+          <ul class="pagination justify-content-center">
+            
+            <div id="li-profile">
+            
+            </div>
+          
+          </ul>
+        </nav>
+
+    </div>
+
+    <div id="followings">
+
+        <div id="followings-posts">
+
+        </div>
+
+        <nav aria-label="Page navigation followings">
+          <ul class="pagination justify-content-center">
+            
+            <div id="li-followings">
+            
+            </div>
+          
+          </ul>
+        </nav>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/app.js' %}"></script>
+{% endblock %}
